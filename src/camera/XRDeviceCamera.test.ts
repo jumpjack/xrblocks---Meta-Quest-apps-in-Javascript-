@@ -131,6 +131,52 @@ describe('XRDeviceCamera', () => {
     warnSpy.mockRestore();
   });
 
+  it('streams when metadata reports valid dimensions', async () => {
+    vi.mocked(navigator.mediaDevices.getUserMedia).mockResolvedValue(
+      createMockStream()
+    );
+
+    const videoMock = document.createElement('video') as HTMLVideoElement & {
+      srcObject: MediaStream | null;
+      src: string;
+      play: () => Promise<void>;
+    };
+    Object.defineProperty(videoMock, 'srcObject', {
+      set(_: MediaStream | null) {},
+    });
+    Object.defineProperty(videoMock, 'src', {
+      set(_: string) {},
+    });
+    Object.defineProperty(videoMock, 'videoWidth', {value: 1280});
+    Object.defineProperty(videoMock, 'videoHeight', {value: 720});
+    videoMock.play = vi.fn().mockImplementation(() => {
+      queueMicrotask(() => {
+        videoMock.onloadedmetadata?.call(
+          videoMock,
+          new Event('loadedmetadata')
+        );
+      });
+      return Promise.resolve();
+    });
+    Object.assign(videoMock, {
+      autoplay: true,
+      muted: true,
+      playsInline: true,
+    });
+    Object.defineProperty(camera, 'video_', {
+      value: videoMock,
+      writable: true,
+      configurable: true,
+    });
+
+    await expect(camera.init()).resolves.toBeUndefined();
+    expect(camera.state).toBe(StreamState.STREAMING);
+    expect(camera.loaded).toBe(true);
+    expect(camera.width).toBe(1280);
+    expect(camera.height).toBe(720);
+    expect(camera.aspectRatio).toBe(1280 / 720);
+  });
+
   it('falls back to XR camera access in immersive-ar sessions', async () => {
     const getUserMediaError = new Error('NotReadableError');
     vi.mocked(navigator.mediaDevices.getUserMedia).mockRejectedValue(
