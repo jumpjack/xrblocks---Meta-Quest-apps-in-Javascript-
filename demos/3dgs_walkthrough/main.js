@@ -9,13 +9,13 @@ const PROPRIETARY_ASSETS_BASE_URL =
 
 const SPLAT_ASSETS = [
   {
-    url: PROPRIETARY_ASSETS_BASE_URL + '3dgs_scenes/nyc.spz',
+    url: 'https://raw.githubusercontent.com/jumpjack/gaussian-quest-experiments/main/vrGaussians-albero-libro4.spz',
     scale: new THREE.Vector3(1.3, 1.3, 1.3),
     position: new THREE.Vector3(0, -0.15, 0),
     quaternion: new THREE.Quaternion(1, 0, 0, 0),
   },
   {
-    url: PROPRIETARY_ASSETS_BASE_URL + '3dgs_scenes/alameda.spz',
+    url: 'https://raw.githubusercontent.com/jumpjack/gaussian-quest-experiments/main/vrGaussians-albero-libro4.spz',
     scale: new THREE.Vector3(1.3, 1.3, 1.3),
     position: new THREE.Vector3(0, 0, 0),
     quaternion: new THREE.Quaternion(1, 0, 0, 0),
