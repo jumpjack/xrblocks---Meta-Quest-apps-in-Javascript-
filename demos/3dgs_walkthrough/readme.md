@@ -1,1 +1,3 @@
-Test 3d gaussian splat walkthrough [here](https://jumpjack.github.io/xrblocks-Meta-Quest/demos/3dgs_walkthrough/index-mio.html)
+Open [this link](https://jumpjack.github.io/xrblocks-Meta-Quest/demos/3dgs_walkthrough/index-mio.html) into your Meta Quest native browser.
+
+Page actually loads 4 gaussian splats, but you should press keys 1, 2, 3 and 4 on keyboard to switch between them...
