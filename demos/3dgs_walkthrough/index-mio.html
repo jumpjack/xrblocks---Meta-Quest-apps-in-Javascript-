@@ -39,14 +39,20 @@
         'https://cdn.jsdelivr.net/gh/xrblocks/proprietary-assets@main/';
 
       // Il tuo asset Splat personalizzato
-      const SPLAT_ASSETS = [
-        {
-          url: './test.spz',
-          scale: new THREE.Vector3(1.0, 1.0, 1.0), // Puoi aggiustare questi valori
-          position: new THREE.Vector3(0, 0, 0),
-          quaternion: new THREE.Quaternion(0, 0, 0, 1), // Quaternioni di identità per nessun extra rotazione
-        }
-      ];
+const SPLAT_ASSETS = [
+  {
+    url: 'nyc.spz',
+    scale: new THREE.Vector3(1.3, 1.3, 1.3),
+    position: new THREE.Vector3(0, -0.15, 0),
+    quaternion: new THREE.Quaternion(1, 0, 0, 0),
+  },
+  {
+    url: './alameda.spz',
+    scale: new THREE.Vector3(1.3, 1.3, 1.3),
+    position: new THREE.Vector3(0, 0, 0),
+    quaternion: new THREE.Quaternion(1, 0, 0, 0),
+  },
+];
 
       const FADE_DURATION_S = 1.0; // seconds
       const MOVE_SPEED = 0.05;
