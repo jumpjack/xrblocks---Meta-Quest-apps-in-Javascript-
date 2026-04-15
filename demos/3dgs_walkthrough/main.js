@@ -15,7 +15,13 @@ const SPLAT_ASSETS = [
     quaternion: new THREE.Quaternion(1, 0, 0, 0),
   },
   {
-    url: 'https://raw.githubusercontent.com/jumpjack/gaussian-quest-experiments/main/vrGaussians-albero-libro4.spz',
+    url: 'giardino.spz',
+    scale: new THREE.Vector3(1.3, 1.3, 1.3),
+    position: new THREE.Vector3(0, 0, 0),
+    quaternion: new THREE.Quaternion(1, 0, 0, 0),
+  },
+  {
+    url: './giardino.spz',
     scale: new THREE.Vector3(1.3, 1.3, 1.3),
     position: new THREE.Vector3(0, 0, 0),
     quaternion: new THREE.Quaternion(1, 0, 0, 0),
